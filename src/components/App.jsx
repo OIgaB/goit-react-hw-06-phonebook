@@ -15,14 +15,14 @@ export const App = () => {
       {id: 'id-3', name: 'Pavlo Tychyna ', number: '645-17-79'},
       {id: 'id-4', name: 'Saint Nicholas', number: '227-91-26'},
   ]
-  const [contacts, setContacts] = useState(() => JSON.parse(window.localStorage.getItem('contacts')) ?? defaultContacts); // новий оператор ?? - якщо буде undefined/null, то поверне defaultContacts
+  //const [contacts, setContacts] = useState(() => JSON.parse(window.localStorage.getItem('contacts')) ?? defaultContacts); // новий оператор ?? - якщо буде undefined/null, то поверне defaultContacts
   //початкове значення contacts - це отримаі дані з localStorage або дефолтний список контактів
 
-  const [filter, setFilter] = useState('');
+  //const [filter, setFilter] = useState('');
 
-  useEffect(() => {
-    window.localStorage.setItem('contacts', JSON.stringify(contacts)); //якщо в state (contacts) є зміни, то записали в localStorage
-  }, [contacts]);
+  // useEffect(() => {
+  //   window.localStorage.setItem('contacts', JSON.stringify(contacts)); //якщо в state (contacts) є зміни, то записали в localStorage
+  // }, [contacts]);
 
 
   // Функція викликається при відправці форми - змінює state (зшиває масив контактів з новим об'єктом 1го контакта)
@@ -50,7 +50,7 @@ export const App = () => {
   };
 
 
-  // Функція, яка шукає співпадіння введеного в фільтр імені серед імен масиву об'єктів в state
+  // Функція, яка шукає співпадіння введеного в фільтр імені з іменами об'єктів масиву в state
   //повертає новий масив знайдених об'єктів (якщо фільтр в state пустий, то новий масив контактів не створиться, 
   // а з ф-ції повернеться масив контактів, що в state)
   const getVisibleContacts = () => {
