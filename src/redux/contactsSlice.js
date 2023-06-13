@@ -25,10 +25,10 @@ const contactsSlice = createSlice({
                 };
             },
         },
-        // deleteContact(state, action){
-        //     const index = state.findIndex(contact => contact.id === action.payload);
-        //     state.splice(index, 1);
-        // }
+        deleteContact(state, action){
+            const index = state.findIndex(contact => contact.id === action.payload);
+            state.splice(index, 1); // 1й аргумент - індекс першого елемента для видалення; 2й - к-ть елементів, що видаляються
+        }
     }
 });
 
