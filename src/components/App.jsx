@@ -1,16 +1,14 @@
 // import { useState, useEffect } from 'react';
-// import { useDispatch } from "react-redux";
-
+import { useSelector } from "react-redux";
 import { ContactForm } from './ContactForm/ContactForm';
 import { Filter } from './Filter/Filter';
 import { ContactList } from './ContactList/ContactList';
 import { Container, Title, SubTitle, AlertMessage } from "./styled";
-// import { nanoid } from 'nanoid';
-
 
 
 export const App = () => {
-  // const dispatch = useDispatch();
+  const contacts = useSelector(state => state.contacts); // отримуємо масив об'єктів зі стору
+  const filter = useSelector(state => state.filter); // отримуємо масив об'єктів зі стору
 
 
   //const [contacts, setContacts] = useState(() => JSON.parse(window.localStorage.getItem('contacts')) ?? defaultContacts); // новий оператор ?? - якщо буде undefined/null, то поверне defaultContacts
@@ -24,17 +22,15 @@ export const App = () => {
 
 
 
-
-
-
-  // Функція, яка шукає співпадіння введеного в фільтр імені з іменами об'єктів масиву в state
+  // Функція, яка шукає співпадіння введеного в фільтр імені з іменами об'єктів масиву, який в state
   //повертає новий масив знайдених об'єктів (якщо фільтр в state пустий, то новий масив контактів не створиться, 
   // а з ф-ції повернеться масив контактів, що в state)
-  // const getVisibleContacts = () => {
-  //     return contacts.filter(({ name }) => 
-  //     name.toLowerCase().includes(filter.toLowerCase()) 
-  //   );
-  // }
+
+  const getVisibleContacts = () => {
+      return contacts.filter(({ name }) => 
+      name.toLowerCase().includes(filter.toLowerCase()) 
+    );
+  }
   
 
   return (
@@ -45,9 +41,8 @@ export const App = () => {
       <SubTitle>Contacts</SubTitle>
       <Filter />
 
-      {/* {getVisibleContacts().length !==0 && <ContactList contacts={getVisibleContacts()} onDeleteContact={deleteContact} />}  якщо фільтр пустий, то передасться [] контактів зі state, якщо повний, то [] зі співпадіннями  */}
-      <ContactList />
-      {/* {getVisibleContacts().length ===0 && <AlertMessage>There is no contact matching your request.</AlertMessage>} */}
+      {getVisibleContacts().length !== 0 && <ContactList contacts={getVisibleContacts()} />}  
+      {getVisibleContacts().length === 0 && <AlertMessage>There is no contact matching your request.</AlertMessage>}
           
     </Container>
   );

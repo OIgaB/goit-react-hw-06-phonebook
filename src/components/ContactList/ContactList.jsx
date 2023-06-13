@@ -1,18 +1,16 @@
 // Рендер списку контактів <ul> та його 1го елемента <li>
 
-// import PropTypes from 'prop-types';
-import { useSelector } from "react-redux";
+import PropTypes from 'prop-types';
 import { deleteContact } from "../../redux/contactsSlice";
 import { useDispatch } from "react-redux"; 
 import { ListContainer, Contact, Name, Number, Wrapper, Button } from "./styled";
 
 
-export const ContactList = () => {    // contacts - масив об'єктів 
-    const contacts = useSelector(state => state.contacts); // отримуємо масив об'єктів зі стору
+export const ContactList = ({ contacts }) => {    // contacts - масив об'єктів 
     const dispatch = useDispatch();
 
-    // Функція видалення 1го контакта по id 
-    const onDeleteContact = (contactID) => {
+    
+    const onDeleteContact = (contactID) => {      // функція видалення 1го контакта по id 
          dispatch(deleteContact(contactID));
     };
 
@@ -31,11 +29,10 @@ export const ContactList = () => {    // contacts - масив об'єктів
     );
 }
 
-// ContactList.propTypes = {
-//     contacts: PropTypes.arrayOf(PropTypes.shape ({
-//         id: PropTypes.string.isRequired,
-//         name: PropTypes.string.isRequired,
-//         number: PropTypes.string.isRequired,
-//     })),
-//     onDeleteContact: PropTypes.func.isRequired,
-// };
+ContactList.propTypes = {
+    contacts: PropTypes.arrayOf(PropTypes.shape ({
+        id: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        number: PropTypes.string.isRequired,
+    })),
+};

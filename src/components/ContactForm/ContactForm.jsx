@@ -9,7 +9,6 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 export const ContactForm = () => {       
 
     const contacts = useSelector(state => state.contacts); // отримуємо масив об'єктів зі стору
-    console.log('contacts:', contacts);
 
     const dispatch = useDispatch();
 
