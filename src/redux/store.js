@@ -27,4 +27,4 @@ export const store = configureStore({
     },
 });
 
-export const persistor = persistStore(store);
+export const persistor = persistStore(store); // імпортується в index.js
