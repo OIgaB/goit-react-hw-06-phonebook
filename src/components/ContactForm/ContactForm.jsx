@@ -1,8 +1,7 @@
 // Форма додавання контактів. Це статична форма - не змінна (при відправці викликає ф-цію зміни state)
 
-import { useSelector } from "react-redux";
-import { addContact } from "../../redux/contactsSlice";
-import { useDispatch } from "react-redux";              
+import { useSelector, useDispatch } from "react-redux";
+import { addContact } from "../../redux/contactsSlice";            
 import { Form, Input, Button } from "./styled";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
@@ -59,8 +58,8 @@ export const ContactForm = () => {
                     name="number"
                     // pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
                     title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-                    required
                     placeholder="459-12-56"
+                    required
                 />
             </label>
             <Button>Add contact</Button>
