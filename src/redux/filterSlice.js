@@ -1,20 +1,35 @@
-import { createSlice } from "@reduxjs/toolkit";
+// import { createSlice } from "@reduxjs/toolkit";
+
+// const filterSlice = createSlice({
+//     name: 'filter',
+//     initialState: '',
+//     reducers: {
+//         setFilter(state, action) {
+//             state = action.payload;
+//         }
+//     }
+// })
+
+// export const { setFilter } = filterSlice.actions;
+// export const { filterReducer } = filterSlice.reducer;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // import { createReducer } from '@reduxjs/toolkit';
 // import { addContact, deleteContact, filterContacts } from './actions';
-
-
-const filterSlice = createSlice({
-    name: 'filter',
-    initialState: '',
-    reducers: {
-        setFilter(state, action) {
-            state = action.payload;
-        }
-    }
-})
-
-export const { setFilter } = filterSlice.actions;
-export const { filterReducer } = filterSlice.reducer;
 
 // Альтернатива:
 
