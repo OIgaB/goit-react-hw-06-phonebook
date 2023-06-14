@@ -1,7 +1,6 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, nanoid } from "@reduxjs/toolkit";
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { nanoid } from "nanoid";
 
 const initialState = {   //об'єкт вимагає бібліотека redux-persist, тому змушені створити ключ array
     array: [
